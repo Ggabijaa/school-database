@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" action="/books/new"
+          method="post">
+        <div id="append">
+            <div class="form-row">
+                <div class="orm-group col-md-4">
+                    <label for="name">name</label>
+                    <input type="text" name="name[]" class="form-control" required>
+                </div>
+
+                <div class="orm-group col-md-4">
+                    <label for="genre">genre</label>
+                    <input type="text" name="genre[]" class="form-control" required>
+                </div>
+                <div class="orm-group col-md-4">
+                    <label for="release_year">release year</label>
+                    <input type="text" name="release_year[]" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="orm-group col-md-6">
+                    <label for="author">author</label>
+                    <input type="text" name="author[]" class="form-control" required>
+                </div>
+                <div class="orm-group col-md-6">
+                    <label for="age_group">age group</label>
+                    <input type="text" name="age_group[]" class="form-control">
+                </div>
+            </div>
+            <div style="padding-bottom: 20px">
+                <label for="user_id">user id</label>
+                <select name="user_id[]" class="custom-select mr-sm-2">
+                    <option value="">no user</option>
+                    {% for u in users %}
+                        <option value={{ u.id }}>
+                            {{ u.id }} {{ u.account_type }} {{ u.name }} {{ u.surname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="append-copy"></div>
+
+        <button type="button" name="add" class="btn btn-success append-btn">Add More</button>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

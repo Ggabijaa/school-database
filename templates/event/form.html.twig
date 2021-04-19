@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/events/edit/{{ event.id }}" method="post">
+        <label for="name">is internal</label>
+        <input type="text" name="is_internal" class="form-control" value="{{ event.is_internal }}" required>
+
+        <label for="starts_at">organizer</label>
+        <input type="text" name="organizer" class="form-control" value="{{ event.organizer }}" required>
+
+        <label for="participants_number">price</label>
+        <input type="text" name="price" class="form-control" value="{{ event.price }}">
+
+        <label for="participants_number">activity id</label>
+        <input type="text" name="activity_id" class="form-control" value="{{ event.activity_id }}" required>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}
+

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {#
+    USER
+                <th>name</th>
+            <th>surname</th>
+            <th>birth_date</th>
+            <th>account_type</th>
+            <th>created_at</th>
+            <th>sex</th>
+
+            PUPIL
+
+
+            <td>{{ pupil.enrolled_at }}</td>
+            <td>{{ pupil.class_id }}</td>
+
+            PUPIL REPRESENTATIVE
+            <th>name</th>
+            <th>surname</th>
+            <th>phone_number</th>
+            <th>address</th>
+            <th>birthdate</th>
+
+            CREATE TABLE `pupil` (
+  `id` int(11) NOT NULL,
+  `enrolled_at` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `pupil_representative_id` int(11) NOT NULL
+
+    #}
+
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" action="/pupils/new"
+          method="post">
+        <div id="append">
+            <h3>User data</h3>
+            <div class="form-row">
+                <div class="orm-group col-md-4">
+                    <label for="name">name</label>
+                    <input type="text" name="name[]" class="form-control" required>
+                </div>
+
+                <div class="orm-group col-md-4">
+                    <label for="genre">genre</label>
+                    <input type="text" name="genre[]" class="form-control" required>
+                </div>
+                <div class="orm-group col-md-4">
+                    <label for="release_year">release year</label>
+                    <input type="text" name="release_year[]" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="orm-group col-md-6">
+                    <label for="author">author</label>
+                    <input type="text" name="author[]" class="form-control" required>
+                </div>
+                <div class="orm-group col-md-6">
+                    <label for="age_group">age group</label>
+                    <input type="text" name="age_group[]" class="form-control">
+                </div>
+            </div>
+            <div style="padding-bottom: 20px">
+                <label for="user_id">user id</label>
+                <select name="user_id[]" class="custom-select mr-sm-2">
+                    <option value="">no user</option>
+                    {% for u in users %}
+                        <option value={{ u.id }}>
+                            {{ u.id }} {{ u.account_type }} {{ u.name }} {{ u.surname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="append-copy"></div>
+
+        <button type="button" name="add" class="btn btn-success append-btn">Add More</button>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

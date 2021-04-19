@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/pupil-representatives/edit/{{ representative.id }}" method="post">
+        <label for="name">name</label>
+        <input type="text" name="name" class="form-control" value="{{ representative.name }}" required>
+
+        <label for="surname">surname</label>
+        <input type="text" name="surname" class="form-control" value="{{ representative.surname }}" required>
+
+        <label for="phone_number">phone number</label>
+        <input type="text" name="phone_number" class="form-control" value="{{ representative.phone_number }}" required>
+
+        <label for="address">address</label>
+        <input type="text" name="address" class="form-control" value="{{ representative.address }}" required>
+
+        <label for="birthdate">birth date</label>
+        <input type="text" name="birthdate" class="form-control" value="{{ representative.birthdate }}" required>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

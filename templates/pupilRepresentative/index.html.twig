@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 style="  margin-left: 10%;
+  margin-right: auto;">Pupil representatives. {{ c }} rows</h2>
+
+    <table class="table table-striped" style="width:79%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>phone_number</th>
+            <th>address</th>
+            <th>birthdate</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+        {% for representative in items %}
+        <tr>
+            <td>{{ representative.id }}</td>
+            <td>{{ representative.name }}</td>
+            <td>{{ representative.surname }}</td>
+            <td>{{ representative.phone_number }}</td>
+            <td>{{ representative.address }}</td>
+            <td>{{ representative.birthdate }}</td>
+            <td><a href="/pupil-representatives/edit/{{ representative.id }}">edit</a></td>
+            <td><a href="/representatives/delete/{{ representative.id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div style="margin-left: 10%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}
+

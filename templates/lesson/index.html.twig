@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 style="  margin-left: 20%;
+  margin-right: auto;">Lessons. {{ c }} rows</h2>
+
+    <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>need_computers</th>
+            <th>activity_id</th>
+        </tr>
+        </thead>
+        {% for lesson in items %}
+        <tr>
+            <td>{{ lesson.id }}</td>
+            <td>{{ lesson.need_computers }}</td>
+            <td>{{ lesson.activity_id }}</td>
+
+            <td><a href="/lessons/edit/{{ lesson.id }}">edit</a></td>
+            <td><a href="/lessons/delete/{{ lesson.id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <div style="margin-left: 20%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

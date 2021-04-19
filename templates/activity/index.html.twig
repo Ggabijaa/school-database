@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div style="padding: 5px 5px 15px 20px">
+        <h2 style="  margin-left: 20%; margin-right: auto;display: inline">Activities. {{ c }} rows</h2>
+        <a style="display: inline; float: right;margin-right: 20%;" class="btn btn-primary" href="/activities/new"
+           role="button">New</a>
+
+    </div>
+    <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>starts_at</th>
+            <th>participants_number</th>
+            <th>seats_number</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+        {% for activity in items %}
+            <tr>
+                <td>{{ activity.id }}</td>
+                <td>{{ activity.name }}</td>
+                <td>{{ activity.starts_at }}</td>
+                <td>{{ activity.participants_number }}</td>
+                <td>{{ activity.seats_number }}</td>
+                <td><a href="/activities/edit/{{ activity.id }}">edit</a></td>
+                <td><a href="/activities/delete/{{ activity.id }}">delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="margin-left: 20%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

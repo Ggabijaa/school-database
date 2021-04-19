@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/lessons/edit/{{ lesson.id }}" method="post">
+
+        <label for="name">need computers</label>
+        <input type="text" name="need_computers" class="form-control" value="{{ lesson.need_computers }}" required>
+
+        <label for="starts_at">activity id</label>
+        <input type="text" name="activity_id" class="form-control" value="{{ lesson.activity_id }}" required>
+
+
+        <input type="submit">
+    </form>
+{% endblock %}
+

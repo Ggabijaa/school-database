@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/pupils/edit/{{ pupil.id }}" method="post">
+        <label for="enrolled_at">enrolled at</label>
+        <input type="text" name="enrolled_at" class="form-control" value="{{ pupil.enrolled_at }}" required>
+
+        <label for="user_id">user id</label>
+        <input type="text" name="user_id" class="form-control" value="{{ pupil.user_id }}" required>
+
+        <label for="class_id">class id</label>
+        <input type="text" name="class_id" class="form-control" value="{{ pupil.class_id }}" required>
+
+        <label for="pupil_representative_id">representative id</label>
+        <input type="text" name="pupil_representative_id" class="form-control" value="{{ pupil.pupil_representative_id }}" required>
+
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

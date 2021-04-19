@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 style="  margin-left: 20%;
+  margin-right: auto;">Attend. {{ c }} rows</h2>
+
+    <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>activity ID</th>
+            <th>pupil ID</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+
+        {% for a in items %}
+        <tr>
+            <td>{{ a.activity_id }}</td>
+            <td>{{ a.pupil_id }}</td>
+            <td><a href="/attend/edit/{{ a.activity_id }}">edit</a></td>
+            <td><a href="/attend/delete/{{ a.activity_id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <div style="margin-left: 30%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

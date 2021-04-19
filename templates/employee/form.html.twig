@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/employees/edit/{{ employee.id }}" method="post">
+        <label for="name">role</label>
+        <input type="text" name="role" class="form-control" value="{{ employee.role }}" required>
+
+        <label for="starts_at">employed at</label>
+        <input type="text" name="employed_at" class="form-control" value="{{ employee.employed_at }}" required>
+
+        <label for="participants_number">user id</label>
+        <input type="text" name="user_id" class="form-control" value="{{ employee.user_id }}" required>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

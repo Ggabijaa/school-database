@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2 style="  margin-left: 10%;
+  margin-right: auto;">Pupils. {{ c }} rows</h2>
+
+    <table class="table table-striped" style="width:79%;margin-left: auto; margin-right: auto;">
+        <thead>
+
+        <tr>
+            <th>pupil ID</th>
+            <th>user ID</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>enrolled at</th>
+            <th>class ID</th>
+            <th>representative ID</th>
+            <th>birth_date</th>
+            <th>account_type</th>
+            <th>created_at</th>
+            <th>sex</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+
+        {% for pupil in items %}
+        <tr>
+            <td>{{ pupil.id }}</td>
+            <td>{{ pupil.user_id }}</td>
+            <td>{{ pupil.name }}</td>
+            <td>{{ pupil.surname }}</td>
+            <td>{{ pupil.enrolled_at }}</td>
+            <td>{{ pupil.class_id }}</td>
+            <td>{{ pupil.pupil_representative_id }}</td>
+            <td>{{ pupil.birth_date }}</td>
+            <td>{{ pupil.account_type }}</td>
+            <td>{{ pupil.created_at }}</td>
+            <td>{{ pupil.sex }}</td>
+            <td><a href="/pupils/edit/{{ pupil.id }}">edit</a></td>
+            <td><a href="/pupils/delete/{{ pupil.id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <div style="margin-left: 10%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

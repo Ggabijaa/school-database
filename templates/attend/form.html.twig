@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group"
+          action="/attend/edit/{{ attend.activity_id }}" method="post">
+
+        <label for="activity_id">activity id</label>
+        <select name="activity_id" class="custom-select mr-sm-2">
+
+            {% for a in activities %}
+                <option value={{ a.id }}
+                        {% if attend.activity_id == a.id %}
+                        selected="selected"
+                        {% endif %}
+                >{{ a.id }} {{ a.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="pupil_id">pupil id</label>
+        <select name="pupil_id" class="custom-select mr-sm-2" multiple required>
+
+            {% for p in pupils %}
+                <option value={{ p.id }}
+                        {% if attend.pupil_id == p.id %}
+                        selected="selected"
+                        {% endif %}
+                >{{ p.id }} {{ p.name }} {{ p.surname }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}
+

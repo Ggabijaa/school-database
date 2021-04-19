@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h2 style="  margin-left: 10%;
+  margin-right: auto;">Employees. {{ c }} rows</h2>
+
+    <table class="table table-striped" style="width:79%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>employee ID</th>
+            <th>user ID</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>role</th>
+            <th>employed_at</th>
+            <th>birth_date</th>
+            <th>account_type</th>
+            <th>created_at</th>
+            <th>sex</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+        {% for employee in items %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.user_id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.surname }}</td>
+                <td>{{ employee.role }}</td>
+                <td>{{ employee.employed_at }}</td>
+                <td>{{ employee.birth_date }}</td>
+                <td>{{ employee.account_type }}</td>
+                <td>{{ employee.created_at }}</td>
+                <td>{{ employee.sex }}</td>
+                <td><a href="/employees/edit/{{ employee.id }}">edit</a></td>
+                <td><a href="/employees/delete/{{ employee.id }}">delete</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <div style="margin-left: 10%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

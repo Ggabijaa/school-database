@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2 style="  margin-left: 10%;
+  margin-right: auto; display: inline;">Books. {{ c }} rows</h2>
+    <a style="display: inline; float: right;margin-right: 20%;" class="btn btn-primary" href="/books/new"
+       role="button">New</a>
+    <table class="table table-striped" style="width:82%;margin-left: auto; margin-right: auto;">
+        <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>genre</th>
+            <th>release_year</th>
+            <th>author</th>
+            <th>age_group</th>
+            <th>user_id</th>
+            <th colspan="2">actions</th>
+        </tr>
+        </thead>
+
+        {% for book in items %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.genre }}</td>
+                <td>{{ book.release_year }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.age_group }}</td>
+                <td>{{ book.user_id }}</td>
+                <td><a href="/books/edit/{{ book.id }}">edit</a></td>
+                <td><a href="/books/delete/{{ book.id }}">delete</a></td>
+            </tr>
+        {% endfor %}
+
+
+    </table>
+    <div style="margin-left: 10%">
+        {{ knp_pagination_render(items) }}
+    </div>
+{% endblock %}

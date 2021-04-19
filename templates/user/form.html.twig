@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%;margin-left: auto; margin-right: auto; " class="form-group" action="/users/edit/{{ user.id }}" method="post">
+        <label for="name">name</label>
+        <input type="text" name="name" class="form-control" value="{{ user.name }}" required>
+
+        <label for="surname">surname</label>
+        <input type="text" name="surname" class="form-control" value="{{ user.surname }}" required>
+
+        <label for="birth_date">birth date</label>
+        <input type="text" name="birth_date" class="form-control" value="{{ user.birth_date }}" required>
+
+        <label for="account_type">account type</label>
+        <input type="text" name="account_type" class="form-control" value="{{ user.account_type }}" required>
+
+        <label for="created_at">created at</label>
+        <input type="text" name="created_at" class="form-control" value="{{ user.created_at }}" required>
+
+        <label for="sex">sex</label>
+        <input type="text" name="sex" class="form-control" value="{{ user.sex }}" required>
+
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

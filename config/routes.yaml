@@ -1,3 +1,104 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index_activity:
+  path: /activities
+  controller: App\Controller\BaseController::indexx
+
+delete_activity:
+    path: /activities/delete/{id}
+    controller: App\Controller\BaseController::delete
+
+new_activity:
+    path: /activities/new
+    controller: App\Controller\BaseController::insertNew
+
+index_attend:
+  path: /attend
+  controller: App\Controller\BaseController::indexx
+
+delete_attend:
+  path: /attend/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_book:
+  path: /books
+  controller: App\Controller\BaseController::indexx
+
+delete_book:
+  path: /books/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_class:
+  path: /classes
+  controller: App\Controller\BaseController::indexx
+
+delete_class:
+  path: /classes/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_employee:
+  path: /employees
+  controller: App\Controller\BaseController::indexx
+
+delete_employee:
+  path: /employees/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_event:
+  path: /events
+  controller: App\Controller\BaseController::indexx
+
+delete_event:
+  path: /events/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_lesson:
+  path: /lessons
+  controller: App\Controller\BaseController::indexx
+
+delete_lesson:
+  path: /lessons/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_organize:
+  path: /organize
+  controller: App\Controller\BaseController::indexx
+
+delete_organize:
+  path: /organize/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+new_organize:
+  path: /organize/new
+  controller: App\Controller\BaseController::insertNew
+
+index_place:
+  path: /places
+  controller: App\Controller\BaseController::indexx
+
+delete_place:
+  path: /places/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_pupil:
+  path: /pupils
+  controller: App\Controller\BaseController::indexx
+
+delete_pupil:
+  path: /pupils/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_pupilRepresentative:
+  path: /pupil-representatives
+  controller: App\Controller\BaseController::indexx
+
+delete_pupilRepresentative:
+  path: /pupil-representatives/delete/{id}
+  controller: App\Controller\BaseController::delete
+
+index_user:
+  path: /users
+  controller: App\Controller\BaseController::indexx
+
+delete_user:
+  path: /users/delete/{id}
+  controller: App\Controller\BaseController::delete
+

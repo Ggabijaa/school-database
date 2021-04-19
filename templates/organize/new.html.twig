@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" action="/organize/new" method="post">
+        <label for="activity_id">activity_id</label>
+        <input type="text" name="activity_id" class="form-control" required>
+
+        <label for="employee_id">employee_id</label>
+        <input type="text" name="employee_id" class="form-control" required>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/classes/edit/{{ class.id }}" method="post">
+        <label for="name">name</label>
+        <input type="text" name="name" class="form-control"  value="{{ class.name }}" required>
+
+        <label for="employee_id">employee id</label>
+        <select name="employee_id" class="custom-select mr-sm-2">
+            {% for e in employees %}
+                <option value={{ e.id }}
+                {% if e.id == class.employee_id %}
+                    selected="selected"
+                {% endif %}
+                >{{ e.id }} {{ e.name }} {{ e.surname }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}
+

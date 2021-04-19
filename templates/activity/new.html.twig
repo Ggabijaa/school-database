@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" action="/activities/new" method="post">
+        <label for="name">name</label>
+        <input type="text" name="name" class="form-control" required>
+
+        <label for="starts_at">starts at</label>
+        <input type="text" name="starts_at" class="form-control" required>
+
+        <label for="participants_number">participants number</label>
+        <input type="text" name="participants_number" class="form-control">
+
+        <label for="seats_number">seats number</label>
+        <input type="text" name="seats_number" class="form-control">
+
+        <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

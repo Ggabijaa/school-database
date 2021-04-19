@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/places/edit/{{ place.id }}" method="post">
+
+        <label for="name">name</label>
+        <input type="text" name="name" class="form-control" value="{{ place.name }}" required>
+
+        <label for="has_computers">has computers</label>
+        <input type="text" name="has_computers" class="form-control" value="{{ place.has_computers }}" required>
+
+        <label for="tables_number">tables number</label>
+        <input type="text" name="tables_number" class="form-control" value="{{ place.tables_number }}" >
+
+        <label for="has_projector">has projector</label>
+        <input type="text" name="has_projector" class="form-control" value="{{ place.has_projector }}" >
+
+        <label for="chairs_number">chairs number</label>
+        <input type="text" name="chairs_number" class="form-control" value="{{ place.chairs_number }}" >
+
+        <label for="activity_id">activity id</label>
+        <input type="text" name="activity_id" class="form-control" value="{{ place.activity_id }}" required>
+
+
+        <input type="submit">
+    </form>
+{% endblock %}
