@@ -2,9 +2,10 @@
 
 {% block title %}Hello UserController!{% endblock %}
 {% block body %}
-    <h2 style="  margin-left: 20%;
+    <h2 style="display: inline;  margin-left: 20%;
   margin-right: auto;">Users. {{ c }} rows</h2>
-
+    <a style="display: inline; float: right;margin-right: 20%;" class="btn btn-primary" href="/users/new"
+       role="button">New</a>
     <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
         <thead>
         <tr>

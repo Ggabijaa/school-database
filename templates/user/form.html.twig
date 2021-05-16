@@ -13,10 +13,17 @@
         <input type="text" name="birth_date" class="form-control" value="{{ user.birth_date }}" required>
 
         <label for="account_type">account type</label>
-        <input type="text" name="account_type" class="form-control" value="{{ user.account_type }}" required>
+        <select name="account_type" class="custom-select mr-sm-2" id="select-account" required>
+            <option value="{{ user.account_type }}">{{ user.account_type }}</option>
+            {% if user.account_type == "employee"%}
+            <option value="pupil" id="pupil">pupil</option>
+            {% else %}
+            <option value="employee" id="employee">employee</option>
+            {% endif %}
+        </select>
 
         <label for="created_at">created at</label>
-        <input type="text" name="created_at" class="form-control" value="{{ user.created_at }}" required>
+        <input type="text" name="created_at" id="date" class="form-control" value="{{ user.created_at }}" required>
 
         <label for="sex">sex</label>
         <input type="text" name="sex" class="form-control" value="{{ user.sex }}" required>

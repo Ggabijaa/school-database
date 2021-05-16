@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\Employee;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,6 +32,25 @@ class EmployeeController extends BaseController
 
         return $this->render('employee/form.html.twig', [
             'employee' => $row
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse|Response
+     * @Route ("/employees/new", methods={"get", "post"})
+     */
+    public function insertNew(Request $request){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $this->db->raw($this->data()->insert($_POST, 'employee'));
+            return $this->redirect('/employees');
+        }
+
+        $users = $this->db->rows($this->data()->getUnused('user_'));
+
+        return $this->render('employee/new.html.twig', [
+            'users' => $users,
+
         ]);
     }
 

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" id="userForm" action="/users/new"
+          method="post" >
+        <h2>New user</h2>
+        <div class="form-row">
+            <div class="orm-group col-md-4">
+                <label for="name">name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="orm-group col-md-4">
+                <label for="surname">surname</label>
+                <input type="text" name="surname" class="form-control" required>
+            </div>
+            <div class="orm-group col-md-4">
+                <label for="birth_date">birth date</label>
+                <input type="text" name="birth_date" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="orm-group col-md-5">
+                <label for="created_at">created_at</label>
+                <input type="text" id="date" name="created_at" class="form-control">
+            </div>
+            <div class="orm-group col-md-5">
+                <label for="account_type">Account type</label>
+                <select name="account_type" class="custom-select mr-sm-2" id="select-account" required>
+                    <option value="" disabled selected>choose account</option>
+                    <option value="pupil" id="pupil">pupil</option>
+                    <option value="employee" id="employee">employee</option>
+                </select>
+            </div>
+            <div class="orm-group col-md-2">
+                <label for="sex">sex</label>
+                <select name="sex" class="custom-select mr-sm-2" id="sex" required>
+                    <option value="" disabled selected>choose sex</option>
+                    <option value="female" id="pupil">female</option>
+                    <option value="male" id="employee">male</option>
+                </select>
+            </div>
+        </div>
+        <input type="submit">
+    </form>
+
+{% endblock %}

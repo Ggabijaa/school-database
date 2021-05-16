@@ -41,8 +41,6 @@ class BookController extends BaseController
      * @Route("/books/new", methods={"get", "post"})
      */
     public function insertNew(Request $request){
-
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $this->db->raw($this->data()->insert($_POST, 'book'));
             return $this->redirect('/books');

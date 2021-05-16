@@ -20,6 +20,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class BaseController extends AbstractController
 {
@@ -121,6 +122,26 @@ class BaseController extends AbstractController
             'c' => $rowCount['cnt']
         ]);
     }
+
+    /**
+     * @Route("/reports")
+     */
+    public function reports(){
+
+           $data =new Activity();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $rows = $this->db->rows($data->getreport($_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],$_POST['birth_date_until']));
+            //$this->db->raw($this->data()->insert($_POST, 'book'));
+            return $this->render('reports/report1.html.twig', [
+                'items' => $rows
+            ]);
+        }
+
+        return $this->render('reports/filter.html.twig', [
+        ]);
+    }
+
 
     public function delete(Request $request, int $id): Response
     {

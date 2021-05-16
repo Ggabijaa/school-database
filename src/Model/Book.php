@@ -13,9 +13,16 @@ class Book extends Base implements ModelInterface
         return self::DB_NAME;
     }
 
+    public function getUserBooks(int $userId, string $table = self::DB_NAME): string {
+        return "SELECT *
+                FROM book  
+                WHERE user_id = $userId";
+    }
+
+
+
     public function insert($parameters, $table): string
     {
-        $cols = [];
         $values = [];
         $str = "";
 

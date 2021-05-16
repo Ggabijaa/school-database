@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 style="display: inline;  margin-left: 20%;
+  margin-right: auto;">Pupil report</h2>
+    <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
+        <thead>
+        <tr>
+            <th>pupil</th>
+            <th>enrolled at</th>
+            <th>birth date</th>
+            <th>representative</th>
+            <th>taken books count</th>
+            <th>attended class count</th>
+        </tr>
+        </thead>
+
+        {% for item in items %}
+
+            <tr>
+                <td>{{ item.pupilName }}</td>
+                <td>{{ item.enrolled_at }}</td>
+                <td>{{ item.birth_date }}</td>
+                <td>{{ item.representative }}</td>
+                <td>{{ item.takenCount }}</td>
+                <td>{{ item.attendedCount }}</td>
+            </tr>
+{#          <tr colspan="6"> <td>dfdf</td></tr>#}
+        {% endfor %}
+    </table>
+{% endblock %}

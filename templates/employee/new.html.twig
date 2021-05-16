@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group" id="pupilForm"
+          action="/employees/new"
+          method="post">
+        <h2>New employee</h2>
+        <div class="form-row">
+            <div class="orm-group col-md-4">
+                <label for="role">role</label>
+                <select name="role" class="custom-select mr-sm-2" required>
+                    <option value="" disabled selected>choose role</option>
+                    <option value="teacher">teacher</option>
+                    <option value="janitor">janitor</option>
+                    <option value="administration">administration</option>
+                </select>
+            </div>
+            <div class="orm-group col-md-5">
+                <label for="employed_at">employed at</label>
+                <input type="text" name="employed_at" class="form-control" required>
+            </div>
+            <div class="orm-group col-md-6">
+                <label for="user_id">User</label>
+                <select id="user_id" name="user_id" class="custom-select mr-sm-2" required>
+                    <option value="" disabled selected>choose user</option>
+                    {% for u in users %}
+                        <option value={{ u.id }}>
+                            {{ u.id }} {{ u.name }} {{ u.surname }} | {{ u.account_type }} | {{ u.sex }} </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <input type="submit">
+    </form>
+
+{% endblock %}

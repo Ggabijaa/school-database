@@ -2,20 +2,51 @@
 
 {% block body %}
 
-    <form style="width:40%; margin-left: auto; margin-right: auto; "  class="form-group" action="/pupils/edit/{{ pupil.id }}" method="post">
-        <label for="enrolled_at">enrolled at</label>
-        <input type="text" name="enrolled_at" class="form-control" value="{{ pupil.enrolled_at }}" required>
+    <form style="width:40%; margin-left: auto; margin-right: auto; margin-top: 50px; " class="form-group"
+          action="/pupils/edit/{{ pupil.id }}" method="post">
+        <h2>Edit pupil</h2>
+        <div class="form-row">
+            <div class="orm-group col-md-10">
+                <label for="user_id">user id</label>
+                <select name="user_id" class="custom-select mr-sm-2" required>
+                    <option value="{{ pupil.id }}"  selected="selected"> {{ pupil.name }} | {{ pupil.surname }} | {{ pupil.account_type }} | {{ pupil.sex }} </option>
+                    {% for e in users %}
+                        <option value={{ e.id }}
+                        >{{ e.id }} | {{ e.name }} | {{ e.surname }} | {{ e.account_type }} | {{ e.sex }} </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="orm-group col-md-10">
+                <label for="pupil_representative_id">representative id</label>
+                <select name="pupil_representative_id" class="custom-select mr-sm-2" required>
+                    {% for e in reps %}
+                        <option value={{ e.id }}
+                {% if e.id == pupil.class_id %}
+                                selected="selected"
+                                {% endif %}
+                        >{{ e.id }} | {{ e.name }} | {{ e.surname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="orm-group col-md-5">
+                <label for="class_id">class id</label>
+                <select name="class_id" class="custom-select mr-sm-2" required>
+                    {% for e in classes %}
+                        <option value={{ e.id }}
+                {% if e.id == pupil.class_id %}
+                                selected="selected"
+                                {% endif %}
+                        >{{ e.id }} | {{ e.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="orm-group col-md-5">
+                <label for="enrolled_at">enrolled at</label>
+                <input type="text" name="enrolled_at" id="date" class="form-control" value="{{ pupil.enrolled_at }}" required>
+            </div>
+        </div>
 
-        <label for="user_id">user id</label>
-        <input type="text" name="user_id" class="form-control" value="{{ pupil.user_id }}" required>
-
-        <label for="class_id">class id</label>
-        <input type="text" name="class_id" class="form-control" value="{{ pupil.class_id }}" required>
-
-        <label for="pupil_representative_id">representative id</label>
-        <input type="text" name="pupil_representative_id" class="form-control" value="{{ pupil.pupil_representative_id }}" required>
-
-
+ </div>
         <input type="submit">
     </form>
 

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<form style="width:40%; margin-left: auto; margin-right: auto; " class="form-group"
+      action="/reports" method="post">
+    <h1>pupil reports</h1>
+    <div class="form-row" style="margin-top: 10px;">
+        <div class="orm-group col-md-5">
+            <label for="enrolled_from">enrolled in year from</label>
+            <input type="text" name="enrolled_from"  class="form-control">
+        </div>
+
+        <div class="orm-group col-md-5">
+            <label for="enrolled_until">enrolled in year until</label>
+            <input type="text" name="enrolled_until" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-row" style="margin-top: 10px;">
+        <div class="orm-group col-md-5">
+            <label for="birth_date_from">birth year from</label>
+            <input type="text" name="birth_date_from" class="form-control">
+        </div>
+
+        <div class="orm-group col-md-5">
+            <label for="birth_date_until">birth year until</label>
+            <input type="text" name="birth_date_until" class="form-control">
+        </div>
+    </div>
+    <input type="submit">
+</form>
+{% endblock %}

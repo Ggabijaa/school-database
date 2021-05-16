@@ -6,10 +6,6 @@ delete_activity:
     path: /activities/delete/{id}
     controller: App\Controller\BaseController::delete
 
-new_activity:
-    path: /activities/new
-    controller: App\Controller\BaseController::insertNew
-
 index_attend:
   path: /attend
   controller: App\Controller\BaseController::indexx
