@@ -8,26 +8,40 @@
     <div class="form-row" style="margin-top: 10px;">
         <div class="orm-group col-md-5">
             <label for="enrolled_from">enrolled in year from</label>
-            <input type="text" name="enrolled_from"  class="form-control">
+            <input type="number" name="enrolled_from" min="1900" max="2100" class="form-control">
         </div>
 
         <div class="orm-group col-md-5">
             <label for="enrolled_until">enrolled in year until</label>
-            <input type="text" name="enrolled_until" class="form-control">
+            <input type="number" name="enrolled_until" min="1900" max="2100" class="form-control">
         </div>
     </div>
 
     <div class="form-row" style="margin-top: 10px;">
         <div class="orm-group col-md-5">
             <label for="birth_date_from">birth year from</label>
-            <input type="text" name="birth_date_from" class="form-control">
+            <input type="number" name="birth_date_from" min="1900" max="2100" class="form-control">
         </div>
 
         <div class="orm-group col-md-5">
             <label for="birth_date_until">birth year until</label>
-            <input type="text" name="birth_date_until" class="form-control">
+            <input type="number" name="birth_date_until" min="1900" max="2100" class="form-control">
         </div>
     </div>
+
+    <div class="form-row" style="margin-top: 10px;">
+        <div class="orm-group col-md-5">
+            <label for="ct">created year from</label>
+            <input type="number" name="cf" min="1900" max="2100" class="form-control">
+        </div>
+
+        <div class="orm-group col-md-5">
+            <label for="ct">created year until</label>
+            <input type="number" name="ct" min="1900" max="2100" class="form-control">
+        </div>
+    </div>
+
+
     <input type="submit">
 </form>
 {% endblock %}

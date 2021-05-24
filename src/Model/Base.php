@@ -64,22 +64,84 @@ class Base
         return "SELECT COUNT(*) as cnt FROM " . $table;
     }
 
-    public function getreport($e_f, $e_t, $bd_f, $bd_t){
-        $taken_book_count_view = "CREATE VIEW taken_b_c AS SELECT user_.id as ub_id, COUNT(*) as takenCount  FROM book INNER JOIN user_ ON user_.id = book.user_id GROUP BY user_.id";
-        $taken_book_count_view = "CREATE VIEW attend_c_c AS SELECT pupil.id as p_id, COUNT(*) as attendCount  FROM pupil INNER JOIN attend ON pupil.id = attend.pupil_id GROUP BY pupil.id";
-      return "SELECT CONCAT(user_.name, ' ', user_.surname) as pupilName , YEAR(enrolled_at) as enrolled_at, birth_date, CONCAT(pupil_representative.name, ' ', pupil_representative.surname) as representative,
-              IFNULL(takenCount, 0) as takenCount, IFNULL(attendCount, 0) as attendedCount
-            FROM pupil 
-            INNER JOIN user_ ON pupil.user_id = user_.id
-            INNER JOIN pupil_representative ON pupil.pupil_representative_id = pupil_representative.id
-            LEFT JOIN attend_c_c ON pupil.id = attend_c_c.p_id
-            LEFT JOIN taken_b_c ON pupil.user_id = ub_id
-            WHERE YEAR(enrolled_at) BETWEEN $e_f AND $e_t AND
-         YEAR(birth_date) BETWEEN $bd_f AND $bd_t
+    public function getreport($e_f, $e_t, $bd_f, $bd_t, $cf, $ct){
+      return "select 
+            pupil.id as pupilID,
+            UCASE(CONCAT(user_.name, ' ', user_.surname)) as pupilName, 
+            YEAR(enrolled_at) as enrolled_at, MONTH(enrolled_at) as eMonth,
+            birth_date,
+            CONCAT(pupil_representative.name, ' ', pupil_representative.surname) as representative,
+            count(book.id) as takenCount,
+            count(attend.activity_id) as attendedCount
+            from pupil 
+            inner join user_ on pupil.user_id = user_.id
+            inner join pupil_representative on pupil.pupil_representative_id = pupil_representative.id
+            left join book on pupil.user_id = book.user_id 
+            left join attend on pupil.id = attend.pupil_id 
+            WHERE YEAR(enrolled_at)
+                BETWEEN $e_f AND $e_t 
+                AND
+            YEAR(birth_date) 
+            BETWEEN $bd_f AND $bd_t
+                AND
+            YEAR(created_at) 
+            BETWEEN $cf AND $ct
+             group by pupil.user_id
             ORDER BY
                 pupil.enrolled_at ASC,
-                pupilName ASC";
-
+                pupilName ASC;
+";
     }
-//SELECT * FROM pupil INNER JOIN user_ ON pupil.user_id = user_.id WHERE enrolled_at BETWEEN '2017-02-01' AND '2020-02-01'
+
+    public function pupilCount($e_f, $e_t, $bd_f, $bd_t, $cf, $ct){
+      return "select 
+                    count(*) as  pupilsCount, 
+                    YEAR(enrolled_at) as enrolled_Y
+                    from pupil 
+                    inner join user_ on pupil.user_id = user_.id
+                    WHERE YEAR(enrolled_at) 
+                    BETWEEN $e_f AND $e_t 
+                    AND
+                    YEAR(birth_date) 
+                    BETWEEN $bd_f AND $bd_t
+                    AND
+                    YEAR(created_at) 
+                    BETWEEN $cf AND $ct
+                    group by YEAR(enrolled_at);";
+    }
+    public function takenBookCount($e_f, $e_t, $bd_f, $bd_t, $cf, $ct){
+      return "select count(book.id) as  bookCount, 
+                    YEAR(enrolled_at) as enrolled_Y
+                    from pupil 
+                    inner join user_ on pupil.user_id = user_.id
+                    left join book on pupil.user_id = book.user_id 
+                    WHERE YEAR(enrolled_at)
+                    BETWEEN $e_f AND $e_t 
+                    AND
+                    YEAR(birth_date) 
+                    BETWEEN $bd_f AND $bd_t
+                    AND
+                    YEAR(created_at) 
+                    BETWEEN $cf AND $ct
+                    group by YEAR(enrolled_at)
+                    ;";
+    }
+
+    public function allPupils($e_f, $e_t, $bd_f, $bd_t, $cf, $ct){
+      return "select count(*) as  pupCount
+                    from pupil 
+                    inner join user_ on pupil.user_id = user_.id
+                    WHERE YEAR(enrolled_at)
+                    BETWEEN $e_f AND $e_t 
+                    AND
+                    YEAR(birth_date) 
+                    BETWEEN $bd_f AND $bd_t
+                    AND
+                    YEAR(created_at) 
+                    BETWEEN $cf AND $ct
+                    ;";
+    }
+
+    // pupils ir ju knygos===
+    // select pupil.id as pupil, count(book.id) bookCount from pupil left join book on pupil.user_id = book.user_id group by pupil.id
 }

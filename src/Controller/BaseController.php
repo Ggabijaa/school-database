@@ -131,10 +131,26 @@ class BaseController extends AbstractController
            $data =new Activity();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $rows = $this->db->rows($data->getreport($_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],$_POST['birth_date_until']));
-            //$this->db->raw($this->data()->insert($_POST, 'book'));
+            $rows = $this->db->rows($data->getreport
+            ($_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],
+                $_POST['birth_date_until'], $_POST['cf'], $_POST['ct']));
+
+            $pups = $this->db->rows($data->pupilCount(
+                $_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],
+                $_POST['birth_date_until'], $_POST['cf'], $_POST['ct']));
+
+            $books = $this->db->rows($data->takenBookCount(
+                $_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],
+                $_POST['birth_date_until'], $_POST['cf'], $_POST['ct']));
+
+            $allP = $this->db->row($data->allPupils(
+                $_POST['enrolled_from'],$_POST['enrolled_until'],$_POST['birth_date_from'],
+                $_POST['birth_date_until'], $_POST['cf'], $_POST['ct']));
             return $this->render('reports/report1.html.twig', [
-                'items' => $rows
+                'items' => $rows,
+                'pups' => $pups,
+                'books' => $books,
+                'allp' => $allP,
             ]);
         }
 

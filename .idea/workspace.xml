@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65bc6151-cacd-4f0a-aec2-1f44849a161b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/employee/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reports/filter.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reports/report1.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/inc/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/inc/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ActivityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PupilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PupilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Activity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Base.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Base.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Pupil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pupil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/activity/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/activity/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/employee/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/employee/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pupil/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pupil/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pupil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pupil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pupil/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pupil/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reports/filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reports/filter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reports/report1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reports/report1.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +211,11 @@
       <workItem from="1619424443892" duration="18238000" />
       <workItem from="1621100077607" duration="5236000" />
       <workItem from="1621160036523" duration="4683000" />
-      <workItem from="1621182467918" duration="12571000" />
+      <workItem from="1621182467918" duration="13241000" />
+      <workItem from="1621249860017" duration="10421000" />
+      <workItem from="1621260649095" duration="434000" />
+      <workItem from="1621783057444" duration="1140000" />
+      <workItem from="1621846041365" duration="10394000" />
     </task>
     <servers />
   </component>
@@ -363,9 +347,9 @@
       <screen x="71" y="27" width="1849" height="1053" />
     </state>
     <state x="659" y="253" key="run.anything.popup/71.27.1849.1053@71.27.1849.1053" timestamp="1621161932018" />
-    <state x="658" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1618926719289">
+    <state x="658" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1621250469363">
       <screen x="71" y="27" width="1849" height="1053" />
     </state>
-    <state x="658" y="257" width="672" height="678" key="search.everywhere.popup/71.27.1849.1053@71.27.1849.1053" timestamp="1618926719289" />
+    <state x="658" y="257" width="672" height="678" key="search.everywhere.popup/71.27.1849.1053@71.27.1849.1053" timestamp="1621250469363" />
   </component>
 </project>

@@ -3,29 +3,54 @@
 {% block body %}
     <h2 style="display: inline;  margin-left: 20%;
   margin-right: auto;">Pupil report</h2>
-    <table class="table table-striped" style="width:60%;margin-left: auto; margin-right: auto;">
+    <table class="table" style="width:60%;margin-left: auto; margin-right: auto; margin-bottom: 50px">
         <thead>
         <tr>
+            <th>ID</th>
             <th>pupil</th>
             <th>enrolled at</th>
             <th>birth date</th>
             <th>representative</th>
-            <th>taken books count</th>
-            <th>attended class count</th>
+            <th style="width:10%;">books cnt</th>
+            <th style="width:10%;">activities cnt</th>
         </tr>
         </thead>
-
-        {% for item in items %}
-
+        {% for p in pups %}
             <tr>
-                <td>{{ item.pupilName }}</td>
-                <td>{{ item.enrolled_at }}</td>
-                <td>{{ item.birth_date }}</td>
-                <td>{{ item.representative }}</td>
-                <td>{{ item.takenCount }}</td>
-                <td>{{ item.attendedCount }}</td>
+                <td colspan="7" style="text-align: center; background-color: lightgreen">{{ p.enrolled_Y }}</td>
             </tr>
-{#          <tr colspan="6"> <td>dfdf</td></tr>#}
+            {% for item in items %}
+                {% if item.enrolled_at == p.enrolled_Y %}
+                    <tr>
+                        <td>{{ item.pupilID }}</td>
+                        <td>{{ item.pupilName }}</td>
+                        <td>{{ item.enrolled_at }}-{{ item.eMonth }}</td>
+                        <td>{{ item.birth_date }}</td>
+                        <td>{{ item.representative }}</td>
+                        <td>{{ item.takenCount }}</td>
+                        <td>{{ item.attendedCount }}</td>
+                    </tr>
+
+                {% endif %}
+                {#          <tr colspan="6"> <td>book cou</td></tr>#}
+            {% endfor %}
+            <tr {# colspan="4" #} style="background-color: #84a998">
+                <td></td>
+                <td>enrolled pupils :</td>
+                <td>{{ p.pupilsCount }}</td>
+                <td></td>
+                <td>books taken:</td>
+                {% for b in books %}
+                    {% if b.enrolled_Y == p.enrolled_Y %}
+                        <td>{{ b.bookCount }}</td>
+                    {% endif %}
+                {% endfor %}
+                <td></td>
+            </tr>
         {% endfor %}
+        <tr style="background-color: aquamarine;">
+            <td></td>
+            <td colspan="6" style="text-align: left;">  {% if allp.pupCount == 0  %} no pupils found {% else %} pupil count: {{ allp.pupCount }}  {% endif %}</td>
+        </tr>
     </table>
 {% endblock %}
